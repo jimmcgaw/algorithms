@@ -1,6 +1,12 @@
 
 
 def mergesort(array):
+    """
+    Recursive divide-and-conquer sort. The invariant to maintain 
+    is that any list returned by this function, including in the 
+    recursive sub-calls, is a sorted list.
+    
+    """
     my_sorted = []
     if len(array) == 1:
         return array
