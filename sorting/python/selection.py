@@ -8,6 +8,10 @@ def selectionsort(array):
     Loop invariant: second list we are constructing is always
     in sorted order.
 
+    Best: O(n^2)
+    Average: O(n^2)
+    Worst: O(n^2)
+
     """
     my_sorted = []
     while len(array) > 1:

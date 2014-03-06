@@ -2,9 +2,13 @@
 
 def mergesort(array):
     """
-    Recursive divide-and-conquer sort. The invariant to maintain 
-    is that any list returned by this function, including in the 
+    Recursive divide-and-conquer sort.
+    Loop invariant: any list returned by this function, including in the 
     recursive sub-calls, is a sorted list.
+
+    Best: O(n log n)
+    Average: O(n log n)
+    Worst: O(n^2)
     
     """
     my_sorted = []

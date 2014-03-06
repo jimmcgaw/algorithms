@@ -7,6 +7,10 @@ def insertionsort(array):
     Loop invariant: all items in list before the current index are
     in sorted order.
 
+    Best: O(n)
+    Average: O(n^2)
+    Worst: O(n^2)
+
     """
     for index, item in enumerate(array):
         if index == 0:

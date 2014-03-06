@@ -1,6 +1,17 @@
 import time
 
 def bubblesort(array):
+    """
+    Loop over array, compare each element with next element
+    Swap if they are out of order.
+    Once we loop over the array without any swaps, list is sorted
+    Loop invariant: ???
+
+    Best: O(n)
+    Average: O(n^2)
+    Worst: O(n^2)
+
+    """
     is_sorted = False
     while not is_sorted:
         swapped = False
