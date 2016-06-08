@@ -39,9 +39,9 @@ class BinaryTree(object):
         if value == parentNode.value:
             return parentNode  # if match, we have the node we want
         # otherwise, compare values
-        elif value < parentNode.value and parentNode.left_child != None:
+        elif value < parentNode.value and parentNode.left_child is not None:
             return self._searchForChildNode(value, parentNode.left_child)
-        elif value > parentNode.value and parentNode.right_child != None:
+        elif value > parentNode.value and parentNode.right_child is not None:
             return self._searchForChildNode(value, parentNode.right_child)
 
     def search(self, value):
