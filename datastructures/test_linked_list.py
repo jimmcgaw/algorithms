@@ -2,6 +2,41 @@ from linked_list import LinkedList, LinkedListItem
 
 import unittest
 
+class LinkedListTest(unittest.TestCase):
+    def setUp(self):
+        self.linked_list = LinkedList()
+        self.words = "Hello Linked Lists".split(' ')
+        self.words = list(reversed(self.words))  # reverse sentence world order
+
+    def populate_linked_list(self):
+        for item in self.words:
+            self.linked_list.insert(item)
+        self.assertEqual(len(self.linked_list), len(self.words))
+
+    def test_search_item_in_list(self):
+        self.populate_linked_list()
+        word_to_find = self.words[0]
+        self.assertEqual(str(self.linked_list.search(word_to_find)), str(LinkedListItem(word_to_find)))
+
+    def test_search_item_not_in_list(self):
+        self.populate_linked_list()
+        self.assertEqual(self.linked_list.search("BadWord"), None)
+
+    def test_next_empty_list(self):
+        self.assertEqual(self.linked_list.next(), None)
+
+    def test_next(self):
+        self.populate_linked_list()
+        self.assertEqual(str(self.linked_list.next()), self.words[-1])
+        self.assertEqual(str(self.linked_list.next()), self.words[-2])
+        self.assertEqual(str(self.linked_list.next()), self.words[-3])
+        self.assertEqual(self.linked_list.next(), None)
+
+
+
+
+
+
 class LinkedListItemTest(unittest.TestCase):
     def setUp(self):
         self.first_value = "Abominable"
