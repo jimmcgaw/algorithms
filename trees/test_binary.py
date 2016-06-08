@@ -64,5 +64,10 @@ class BinaryTreeTest(unittest.TestCase):
         self.assertEqual(str(self.tree.search(5)), str(self.tree.rootNode.left_child.right_child))
         self.assertEqual(str(self.tree.search(8)), str(self.tree.rootNode.right_child))
 
+    def test_search_for_nonexistent_node(self):
+        self.populate_tree()
+
+        self.assertEqual(self.tree.search(77), None)
+
 if __name__ == '__main__':
     unittest.main()

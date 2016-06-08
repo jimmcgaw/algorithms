@@ -25,12 +25,12 @@ class BinaryTree(object):
         The same logic applies for the right child, in the case where the new
         """
         if childNode.value < parentNode.value:
-            if parentNode.left_child != None:
+            if parentNode.left_child is not None:
                 self._insertChildNode(childNode, parentNode.left_child)
             else:
                 parentNode.left_child = childNode
         else:
-            if parentNode.right_child != None:
+            if parentNode.right_child is not None:
                 self._insertChildNode(childNode, parentNode.right_child)
             else:
                 parentNode.right_child = childNode
@@ -45,7 +45,7 @@ class BinaryTree(object):
             return self._searchForChildNode(value, parentNode.right_child)
 
     def search(self, value):
-        if self.rootNode != None:
+        if self.rootNode is not None:
             if self.rootNode.value == value:
                 return self.rootNode
             else:
