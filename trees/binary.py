@@ -35,6 +35,24 @@ class BinaryTree(object):
             else:
                 parentNode.right_child = childNode
 
+    def _searchForChildNode(self, value, parentNode):
+        if value == parentNode.value:
+            return parentNode  # if match, we have the node we want
+        # otherwise, compare values
+        elif value < parentNode.value and parentNode.left_child != None:
+            return self._searchForChildNode(value, parentNode.left_child)
+        elif value > parentNode.value and parentNode.right_child != None:
+            return self._searchForChildNode(value, parentNode.right_child)
+
+    def search(self, value):
+        if self.rootNode != None:
+            if self.rootNode.value == value:
+                return self.rootNode
+            else:
+                return self._searchForChildNode(value, self.rootNode)
+        else:
+            return None
+
     def insert(self, value):
         newNode = self._createNode(value)
         if not self.rootNode:
