@@ -1,4 +1,4 @@
-from suffix import SuffixNode, SuffixTree, Node
+from suffix import SuffixNode, SuffixTree, Node, SuffixRootNode
 
 import unittest
 
@@ -55,13 +55,27 @@ class SuffixNodeTest(unittest.TestCase):
         self.assertEqual(self.node.is_leaf_node(), True)
         self.assertEqual(self.node.get_value(), "A" + self.endchar)
 
-
+import collections
 
 class SuffixTreeTest(unittest.TestCase):
     def setUp(self):
         self.nucleotides = u'CAGTCAGG'
-        self.tree = SuffixTree()
+        self.tree = SuffixTree(self.nucleotides)
 
     def test_has_root(self):
         """ we initialize the tree with a root node """
+        self.assertTrue(self.tree.rootNode is not None)
+        self.assertTrue(isinstance(self.tree.rootNode, SuffixRootNode))
+
+    def test_get_next_iteration(self):
+        self.tree = SuffixTree("CAG")
+        self.assertTrue(self.tree._iterator is not None)
+        self.assertEqual( self.tree.get_next_iteration(), ('G', 3))
+        self.assertEqual( self.tree.get_next_iteration(), ('AG', 2))
+        self.assertEqual( self.tree.get_next_iteration(), ('CAG', 1))
+        # make sure iterator halts when we reach beginning of string
+        self.assertEqual( self.tree.get_next_iteration(), None)
+        self.assertEqual( self.tree.get_next_iteration(), None)
+
+    def test_construct_tree(self):
         pass
