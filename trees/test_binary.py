@@ -69,5 +69,13 @@ class BinaryTreeTest(unittest.TestCase):
 
         self.assertEqual(self.tree.search(77), None)
 
+    @unittest.skip("not completed yet")
+    def test_inorder_tree_walk(self):
+        self.populate_tree()
+        self.assertEqual(self.tree.inorder_tree_walk(), [2,3,5,6,7,8,11])
+
+    def test_inorder_tree_walk_empty_tree(self):
+        self.assertEqual(self.tree.inorder_tree_walk(), [])
+
 if __name__ == '__main__':
     unittest.main()

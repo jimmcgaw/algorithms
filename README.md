@@ -7,3 +7,7 @@ If for some reason you've found this repo, be advised that this library should *
 ## Running a test
 
 For example: ``` $ python datastructures/test_stack.py ```
+
+Or to run all tests from root:
+
+``` $ py.test ```

@@ -60,3 +60,27 @@ class BinaryTree(object):
         else:
             """ already have a root node, append as child """
             self._insertChildNode(newNode, self.rootNode)
+
+    def _walkNode(self, node):
+        if node is not None:
+            if node.left_child is not None and node.right_child is not None:
+                return [self._walkNode(node.left_child), [node.value], self._walkNode(node.right_child)]
+            elif node.left_child is not None:
+                return [self._walkNode(node.left_child), [node.value]]
+            elif node.right_child is not None:
+                return [[node.value], self._walkNone(node.right_child)]
+            else:
+                return [node.value]
+        else:
+            return []
+
+
+
+    def inorder_tree_walk(self):
+        values = []
+        value = self._walkNode(self.rootNode)
+        if type(value) is list:
+            values += value
+        elif type(value) is int:
+            values.append(value)
+        return [val for sublist in values for val in sublist]
