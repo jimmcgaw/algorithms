@@ -8,6 +8,6 @@ If for some reason you've found this repo, be advised that this library should *
 
 For example: ``` $ python datastructures/test_stack.py ```
 
-Or to run all tests from root:
+Or to run all tests (I use [pytest](http://pytest.org/latest/))from root:
 
 ``` $ py.test ```
